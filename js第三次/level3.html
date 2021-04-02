@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>level3</title>
+    <style>
+        body{
+            width:800px;
+            height:100%;
+            margin: auto;
+        }
+        div{
+            display: flex;
+            justify-content:space-around;
+            margin: 20px;
+        }
+        button{
+            background-color:#FAEBD7;
+            border-color:#FAEBD7;
+            border-radius: 5px;
+        }
+        .div2{
+            display: flex;
+            justify-content: center;
+            width:800px;
+            height:600px;
+            background-color: #7FFFD4;
+        }
+        .divs{
+            background-color:red;
+            width:100px;
+            margin: 5px;;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" name="" id="input">
+        <button id="lin">左侧入</button>
+        <button id="rin">右侧入</button>
+        <button id="lou">左侧出</button>
+        <button id="rou">右侧出</button>
+        <button id="res">重新排序</button>
+        <button id="cle">清空</button>
+        <button id="ran">随机生成</button>
+    </div>  
+    <div class='div2'>
+        <!-- 左侧入，右侧入会产生一个input高的条，所有条的宽度填充整个div
+            入：需要读取input中的内容，并转化成Number类型
+        左侧入：在所有元素的前面插入一个div标签
+        右侧入：在所有元素后面插入一个div标签
+        出：删除第一个或者最后一个标签
+        生成随机数：生成20个100以内的随机数 -->
+    </div>
+    <script>
+        var input = document.getElementById('input');
+        var div2 =document.getElementsByClassName('div2')[0];
+        var ran = document.getElementById('ran');
+        var rin = document.getElementById('rin');
+        var rou = document.getElementById('rou');
+        var lin = document.getElementById('lin');
+        var lou = document.getElementById('lou');
+        var cle = document.getElementById('cle');
+        var res = document.getElementById('res');
+        ran.onclick = function(){
+            for(var i = 0; i <20 ; i++){
+                var divs = document.createElement("div");
+                divs.setAttribute('class','divs')
+                divs.style.height = Math.random()*100+'px';
+                /* 将随机值赋给某个属性 */
+                div2.appendChild(divs);
+                console.log(divs);
+            }
+        }
+        rin.onclick = function(){
+            var divs  = document.createElement('div');
+            divs.setAttribute('class','divs')
+            divs.style.height = input.value+'px';
+            div2.appendChild(divs);
+        }
+        rou.onclick = function(){
+            var divs = document.getElementsByClassName('divs');
+            div2.removeChild(divs[divs.length-1]);
+        }
+        lin.onclick = function(){
+            var divs  = document.createElement('div');
+            divs.setAttribute('class','divs')
+            divs.style.height = input.value+'px';
+            div2.insertBefore(divs,div2.childNodes[0]);
+        }
+        lou.onclick = function(){
+            var divs = document.getElementsByClassName('divs')[0];
+            div2.removeChild(divs);
+        }
+        res.onclick = function(){
+            for(var i = 0;div2.children.length;i++)
+            {
+                for(var j=0;div2.children.length-1;j++)
+                {
+                    if (div2.children[j].offsetHeight>div2.children[j+1].offsetHeight){
+                        var temp = div2.children[j].offsetHeight;
+                        div2.children[j].style.height = div2.children[j+1].offsetHeight+'px';
+                        div2.children[j+1].style.height =temp+'px';
+                    }
+                }
+            }
+        }
+        cle.onclick = function(){
+            var divs = document.getElementsByClassName('divs');
+            for (var i=0;i<divs.length;i++)
+            {
+                div2.removeChild(divs[i]);
+                console.log(i);
+            }
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+            width: 200px;
+            height: 200px;
+        }
+        li{
+            box-sizing: border-box;
+            border: 2px solid black;
+            float: left;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+ <ul>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+ </ul>
+ <script>
+     var ul = document.getElementsByTagName('ul')[0];
+     var move = false;
+     ul.onmousedown = function(e){
+        var event = e || window.event;
+        var target = event.target || event.srcElement;
+        target.style.backgroundColor = "#00FF00"
+        move = true;
+     }
+     ul.onmousemove = function(e){
+         if(move == true)
+         {
+             var event = e || window.event;
+         var target = event.target || event.srcElement;
+         target.style.backgroundColor = "#00FF00"
+         }
+     }
+     ul.onmouseup = function(e){
+ //       if(move == true)
+ //       {
+ //           var event = e || window.event;
+ //       var target = event.target || event.srcElement;
+ //       target.style.backgroundColor = "#00FF00"
+ //       } 
+        move = false;
+    }
+ </script>
+</body>
+</html>
